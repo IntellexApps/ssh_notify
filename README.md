@@ -28,6 +28,7 @@ Usage
 2. Configure the script to match your needs
 2. Login via ssh to test it
 
+`wget https://github.com/IntellexApps/ssh_notify/raw/master/ssh_notify.sh -O /etc/profile.d/ssh_notify.sh && chmod +x /etc/profile.d/ssh_notify.sh`
 
 Credits
 --------------------

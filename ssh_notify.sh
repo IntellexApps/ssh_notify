@@ -105,7 +105,7 @@ PTR=`dig +short -x ${IP} | sed s/\.$//`
 	HISTORY_COUNTER=0
 
 	# Make sure the file exists
-	touch FILE
+	touch $FILE
 
 	# Get the current state
 	if [ -f $FILE ]; then
@@ -195,8 +195,10 @@ fi # }
 if ! [[ $MESSAGE_ENABLED -eq 0 ]]; then
 
 	# Get the services
+	[[ -z $(command -v service) ]] && SVC_CMD="/etc/init.d/" || SVC_CMD="service "
+
 	for SERVICE in ${MESSAGE_SERVICES}; do
-		STATUS=`service ${SERVICE} status 2>&1`
+		STATUS=`${SVC_CMD}${SERVICE} status 2>&1`
 		SERVICES="${SERVICES} ${STATUS}\n"
 	done;
 
